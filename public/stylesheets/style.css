@@ -1,0 +1,13 @@
+body {
+  padding: 50px !important;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.ng-table {
+    border: 1px solid #000;
+    text-align: center;
+}
