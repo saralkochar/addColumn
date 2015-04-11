@@ -1,6 +1,8 @@
-angular.module('ui.bootstrap.demo', ['ui.bootstrap']);
-var app = angular.module('ui.bootstrap.demo',['ngTable']).
-  controller('DemoCtrl',  function($scope, $filter, ngTableParams) {
+// app = angular.module('app', ['ui.bootstrap.demo']);
+
+var app = angular.module('app',['ngTable', 'ui.bootstrap'])
+
+app.controller('DemoCtrl',  function($scope, $filter, ngTableParams) {
     var data = [{name: "Moroni", age: 50, gender: "male"},
         {name: "Tiancum", age: 43},
         {name: "Jacob", age: 27},
@@ -20,12 +22,14 @@ var app = angular.module('ui.bootstrap.demo',['ngTable']).
         {name: "Enos", age: 34}];
     $scope.columns = [
         { title: 'Item/Code', field: 'name', visible: true, filter: { 'name': 'text' } },
-        { title: 'Material/Type', field: 'name', visible: true },
-        { title: 'Construction', field: 'age', visible: true },
-        { title: 'Weight', field: 'age', visible: true },
+        { title: 'Material/Type', field: 'name', visible: false },
+        { title: 'Construction', field: 'age', visible: false },
+        { title: 'Weight', field: 'age', visible: false },
         { title: 'Placement', field: 'name', visible: true },
-        { title: 'Units', field: 'age', visible: true },
-        { title: 'Consumption', field: 'age', visible: true }  
+        { title: 'Units', field: 'age', visible: false },
+        { title: 'Consumption', field: 'age', visible: false },
+        { title: 'Blue-black', field: 'age', visible: true },
+        { title: 'Green-yellow', field: 'age', visible: true }
     ];
     $scope.tableParams = new ngTableParams({
         page: 1,            // show first page
@@ -44,6 +48,9 @@ var app = angular.module('ui.bootstrap.demo',['ngTable']).
             $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
         }
     });
-    $scope.isCollapsed = false;
-  });
+});
+
+app.controller('CollapseDemoCtrl', function ($scope) {
+  $scope.isCollapsed = false;
+});
 
