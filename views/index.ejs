@@ -34,13 +34,13 @@
 
 		<div ng-controller="DemoCtrl">
 
-		Add or Remove Columns:
+		<h1 class="text-center">Bills of material</h1>
+    <h3>Add or Remove Columns:</h3>
 
   		<div ng-controller="CollapseDemoCtrl">
-  			<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><span class="glyphicon glyphicon-align-justify"></span></button>
-  			<hr>
+  			<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
   			<div collapse="isCollapsed">
-  				<div class="well well-lg">Some content
+  				<div class="well well-lg"><h3>Select Categories</h3>
   					<label class="checkbox" ng-repeat="column in columns">
   		    		<input type="checkbox" ng-model="column.visible" /> {{column.title}}
   					</label>
@@ -48,6 +48,7 @@
 
   			</div>
   		</div>
+
 		  <table ng-table="tableParams" show-filter="true" class="table">
 		    <thead>
 		    <tr>

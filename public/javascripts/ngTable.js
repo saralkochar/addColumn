@@ -3,23 +3,23 @@
 var app = angular.module('app',['ngTable', 'ui.bootstrap'])
 
 app.controller('DemoCtrl',  function($scope, $filter, ngTableParams) {
-    var data = [{name: "Moroni", age: 50, gender: "male"},
-        {name: "Tiancum", age: 43},
-        {name: "Jacob", age: 27},
-        {name: "Nephi", age: 29},
-        {name: "Enos", age: 34},
-        {name: "Tiancum", age: 43},
-        {name: "Jacob", age: 27},
-        {name: "Nephi", age: 29},
-        {name: "Enos", age: 34},
-        {name: "Tiancum", age: 43},
-        {name: "Jacob", age: 27},
-        {name: "Nephi", age: 29},
-        {name: "Enos", age: 34},
-        {name: "Tiancum", age: 43},
-        {name: "Jacob", age: 27},
-        {name: "Nephi", age: 29},
-        {name: "Enos", age: 34}];
+    var data = [{name: "Moroni", age: 50, role: 'Administrator'},
+                {name: "Tiancum", age: 43, role: 'Administrator'},
+                {name: "Jacob", age: 27, role: 'Administrator'},
+                {name: "Nephi", age: 29, role: 'Moderator'},
+                {name: "Enos", age: 34, role: 'User'},
+                {name: "Tiancum", age: 43, role: 'User'},
+                {name: "Jacob", age: 27, role: 'User'},
+                {name: "Nephi", age: 29, role: 'Moderator'},
+                {name: "Enos", age: 34, role: 'User'},
+                {name: "Tiancum", age: 43, role: 'Moderator'},
+                {name: "Jacob", age: 27, role: 'User'},
+                {name: "Nephi", age: 29, role: 'User'},
+                {name: "Enos", age: 34, role: 'Moderator'},
+                {name: "Tiancum", age: 43, role: 'User'},
+                {name: "Jacob", age: 27, role: 'User'},
+                {name: "Nephi", age: 29, role: 'User'},
+                {name: "Enos", age: 34, role: 'User'}];
     $scope.columns = [
         { title: 'Item/Code', field: 'name', visible: true, filter: { 'name': 'text' } },
         { title: 'Material/Type', field: 'name', visible: false },
@@ -51,6 +51,6 @@ app.controller('DemoCtrl',  function($scope, $filter, ngTableParams) {
 });
 
 app.controller('CollapseDemoCtrl', function ($scope) {
-  $scope.isCollapsed = false;
+  $scope.isCollapsed = true;
 });
 
