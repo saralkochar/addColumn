@@ -1,6 +1,6 @@
 // app = angular.module('app', ['ui.bootstrap.demo']);
 
-var app = angular.module('app',['ngTable', 'ui.bootstrap'])
+var app = angular.module('app',['ngTable', 'ui.bootstrap', 'angular-tour'])
 
 app.controller('DemoCtrl',  function($scope, $filter, ngTableParams) {
     var data = [{name: "Moroni", age: 50, role: 'Administrator'},

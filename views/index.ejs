@@ -6,16 +6,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
 
-		<!-- Angular JS -->
+	<script src="lib/jquery/jquery.js"></script>
     <script src="lib/angular/angular.js"></script>
-
-    <!-- Bootstrap-angular JS -->
     <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-
-    <!-- NG-Table -->
-
     <script src="lib/ng-table/dist/ng-table.js"></script>
+    <script src="lib/angular-tour/dist/angular-tour-tpls.min.js"></script>
     <link rel="stylesheet" href="lib/ng-table/dist/ng-table.css">
+    <link href="lib/angular-tour/dist/angular-tour.css" rel="stylesheet" type="text/css"/>
 
     <!-- Custom CSS -->
     <link href="/stylesheets/style.css" rel="stylesheet">
@@ -34,44 +31,52 @@
 
 		<div ng-controller="DemoCtrl">
 
-		<h1 class="text-center">Bills of material</h1>
-    <h3>Add or Remove Columns:</h3>
+			<h1 class="text-center">Bills of material</h1>
+	    	<h3>Add or Remove Columns:</h3>
 
-  		<div ng-controller="CollapseDemoCtrl">
-  			<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
-  			<div collapse="isCollapsed">
-  				<div class="well well-lg"><h3>Select Categories</h3>
-  					<label class="checkbox" ng-repeat="column in columns">
-  		    		<input type="checkbox" ng-model="column.visible" /> {{column.title}}
-  					</label>
-  				</div>
+	    	<tour step="currentStep">
 
-  			</div>
-  		</div>
+		  		<div ng-controller="CollapseDemoCtrl">
+		  			<span tourtip="CLICK ON THIS BUTTON TO ADD COLUMNS"></span>
+		  			<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">
+		  			<span class="glyphicon glyphicon-menu-hamburger"></span>
+		  			</button>
+		  			<div collapse="isCollapsed">
+		  				<div class="well well-lg"><h3>Select Categories</h3>
+		  					<label class="checkbox" ng-repeat="column in columns">
+		  					<span tourtip="THIS IS HOW YOU CAN ADD OR REMOVE COLUMNS"></span>
+		  		    		<input type="checkbox" ng-model="column.visible" /> {{column.title}}
+		  					</label>
 
-		  <table ng-table="tableParams" show-filter="true" class="table">
-		    <thead>
-		    <tr>
-		        <th ng-repeat="column in columns" ng-show="column.visible"
-		            class="text-center sortable" ng-class="{
-		                'sort-asc': tableParams.isSortBy(column.field, 'asc'),
-		                'sort-desc': tableParams.isSortBy(column.field, 'desc')
-		              }"
-		            ng-click="tableParams.sorting(column.field, tableParams.isSortBy(column.field, 'asc') ? 'desc' : 'asc')">
-		            {{column.title}}
-		        </th>
-		    </tr>
-		    </thead>
-		    <tbody>
-		    <tr ng-repeat="user in $data">
-		        <td ng-repeat="column in columns" ng-show="column.visible" sortable="column.field">
-		            {{user[column.field]}}
-		        </td>
-		    </tr>
-		    </tbody>
-		  </table>
+		  				</div>
+		  			</div>
+		  		</div>
+		  		
 
-    </div>
+				<table ng-table="tableParams" show-filter="true" class="table">
+				<thead>
+				<tr>
+				    <th ng-repeat="column in columns" ng-show="column.visible"
+				        class="text-center sortable" ng-class="{
+				            'sort-asc': tableParams.isSortBy(column.field, 'asc'),
+				            'sort-desc': tableParams.isSortBy(column.field, 'desc')
+				          }"
+				        ng-click="tableParams.sorting(column.field, tableParams.isSortBy(column.field, 'asc') ? 'desc' : 'asc')">
+				        {{column.title}}
+				    </th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="user in $data">
+				    <td ng-repeat="column in columns" ng-show="column.visible" sortable="column.field">
+				        {{user[column.field]}}
+				    </td>
+				</tr>
+				</tbody>
+				</table>
+			</tour>
+    	</div>
+    	<span tourtip="CLICK ON THIS BUTTON TO ADD COLUMNS-3"></span>
 
     <!-- Custom JS -->
     <script src="/javascripts/ngTable.js"></script>
